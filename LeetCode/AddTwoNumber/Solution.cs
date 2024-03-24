@@ -4,9 +4,9 @@ using TestProject1.AddTwoNumber;
 namespace LeetCode.AddTwoNumber;
 
 // https://leetcode.com/problems/add-two-numbers/
-public class Solution
+public static class Solution
 {
-    public ListNode Add(ListNode l1, ListNode l2)
+    public static ListNode Add(ListNode l1, ListNode l2)
     {
         var remainder = 0;
         var currentValue = l1.Val + l2.Val;

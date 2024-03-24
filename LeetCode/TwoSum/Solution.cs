@@ -1,9 +1,9 @@
 namespace LeetCode.TwoSum;
 
 // https://leetcode.com/problems/two-sum/
-public class Solution
+public static class Solution
 {
-    public int[] TwoSum(int[] nums, int target)
+    public static IEnumerable<int> TwoSum(int[] nums, int target)
     {
         var dictionary = new Dictionary<int, int>();
 
@@ -11,7 +11,7 @@ public class Solution
         {
             var num = nums[i];
             if (dictionary.TryGetValue(num, out var index))
-                return new int[] { index, i };
+                return new[] { index, i };
 
             dictionary.TryAdd(target - num, i);
         }

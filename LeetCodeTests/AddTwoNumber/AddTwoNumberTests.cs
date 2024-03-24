@@ -1,44 +1,43 @@
 using FluentAssertions;
-using FluentAssertions.Execution;
+using LeetCode.AddTwoNumber;
+using TestProject1.AddTwoNumber;
 
-namespace TestProject1.AddTwoNumber;
+namespace LeetCodeTests.AddTwoNumber;
 
-[TestFixture]
 public class AddTwoNumberTests
 {
-    [TestCaseSource(nameof(DataProvider))]
+    [Theory]
+    [MemberData(nameof(DataProvider))]
     public void AddTwoNumber_GivenListNodes_ShouldReturnsExpectedListNode(ListNode firstListRoot,
         ListNode secondListRoot, ListNode expected)
     {
-        // arrange
-        var addTwoNumber = new LeetCode.AddTwoNumber.Solution();
-
         // act
-        var output = addTwoNumber.Add(firstListRoot, secondListRoot);
+        var output = Solution.Add(firstListRoot, secondListRoot);
 
         // assert
-        output.Should().BeEquivalentTo(expected);
+        output.Should()
+            .BeEquivalentTo(expected);
     }
 
-    public static IEnumerable<ListNode[]> DataProvider()
+    public static IEnumerable<object[]> DataProvider()
     {
         var listNode1Test1 = CreateLinkedList(2, 4, 3);
         var listNode2Test1 = CreateLinkedList(5, 6, 4);
         var outputTest1 = CreateLinkedList(7, 0, 8);
 
-        yield return new[] { listNode1Test1, listNode2Test1, outputTest1 };
+        yield return [listNode1Test1, listNode2Test1, outputTest1];
 
         var listNode1Test2 = CreateLinkedList(0);
         var listNode2Test2 = CreateLinkedList(0);
         var outputTest2 = CreateLinkedList(0);
 
-        yield return new[] { listNode1Test2, listNode2Test2, outputTest2 };
+        yield return [listNode1Test2, listNode2Test2, outputTest2];
 
         var listNode1Test3 = CreateLinkedList(9, 9, 9, 9, 9, 9, 9);
         var listNode2Test3 = CreateLinkedList(9, 9, 9, 9);
         var outputTest3 = CreateLinkedList(8, 9, 9, 9, 0, 0, 0, 1);
 
-        yield return new[] { listNode1Test3, listNode2Test3, outputTest3 };
+        yield return [listNode1Test3, listNode2Test3, outputTest3];
     }
 
     private static ListNode CreateLinkedList(params int[] numbers)
