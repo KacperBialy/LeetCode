@@ -1,13 +1,7 @@
-namespace TestProject1.AddTwoNumber;
+namespace LeetCode.AddTwoNumber;
 
-public class ListNode
+public class ListNode(int val = 0, ListNode? next = null)
 {
-    public int Val { get; set; }
-    public ListNode? Next { get; set; }
-
-    public ListNode(int val = 0, ListNode? next = null)
-    {
-        Val = val;
-        Next = next;
-    }
+    public int Val { get; set; } = val;
+    public ListNode? Next { get; set; } = next;
 }

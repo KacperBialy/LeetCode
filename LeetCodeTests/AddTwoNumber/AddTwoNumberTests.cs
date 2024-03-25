@@ -1,6 +1,5 @@
 using FluentAssertions;
 using LeetCode.AddTwoNumber;
-using TestProject1.AddTwoNumber;
 
 namespace LeetCodeTests.AddTwoNumber;
 
