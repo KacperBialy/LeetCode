@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-
-namespace LeetCode.AddTwoNumber;
+﻿namespace LeetCode.AddTwoNumber;
 
 // https://leetcode.com/problems/add-two-numbers/
 public static class Solution
