@@ -13,20 +13,14 @@ public static class Solution
 
         for (var i = 0; i < min; i++)
         {
-            var isCommon = true;
             for (var j = 1; j < strs.Length; j++)
             {
                 if (strs[j - 1][i] != strs[j][i])
                 {
-                    isCommon = false;
-                    break;
+                    return prefixBuilder.ToString();
                 }
             }
-
-            if (isCommon)
-                prefixBuilder.Append(strs[0][i]);
-            else
-                break;
+            prefixBuilder.Append(strs[0][i]);
         }
 
         return prefixBuilder.ToString();
