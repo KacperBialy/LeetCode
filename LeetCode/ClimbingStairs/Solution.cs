@@ -5,24 +5,16 @@ public static class Solution
 {
     public static int ClimbStairs(int n)
     {
-        return GetNthFibonacci(n + 2);
-    }
-
-
-    private static int GetNthFibonacci(int n)
-    {
-        var number = n - 1;
+        var left = 1;
+        var right = 1;
         
-        var fib = new int[number + 1];
-        
-        fib[0]= 0;
-        fib[1] = 1;
-        
-        for (var i = 2; i <= number;i++)
+        for (var i = 0; i < n - 1; i++)
         {
-            fib[i] = fib[i - 2] + fib[i - 1];
+            var temp = left;
+            left += right;
+            right = temp;
         }
-        
-        return fib[number];
+
+        return left;
     }
 }
